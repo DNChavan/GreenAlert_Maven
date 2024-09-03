@@ -1,0 +1,141 @@
+.navbar {
+    background-color: #388E3C;
+    border-radius: 0;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(165, 214, 167, 0.1) 0%, rgba(56, 142, 60, 0) 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.navbar:hover::before {
+    opacity: 1;
+    animation: pulse 4s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+/* Navbar Brand Styles */
+.navbar-brand {
+    color: #0baa53 !important;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navbar-brand::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #A5D6A7;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover {
+    color: #A5D6A7 !important;
+}
+
+.navbar-brand:hover::after {
+    transform: scaleX(1);
+}
+
+/* Navbar Links Styles */
+.navbar-nav > li > a {
+    color: #f3f6f4 !important;
+    transition: color 0.3s ease, transform 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.navbar-nav > li > a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(165, 214, 167, 0.1);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+
+.navbar-nav > li.active > a,
+.navbar-nav > li > a:hover {
+    color: #A5D6A7 !important;
+    transform: translateY(-2px);
+}
+
+.navbar-nav > li.active > a::before,
+.navbar-nav > li > a:hover::before {
+    transform: scaleY(1);
+}
+
+/* Navbar Toggle Button Styles */
+.navbar-toggle {
+    border-color: #A5D6A7;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar-toggle:hover {
+    background-color: rgba(165, 214, 167, 0.1);
+    transform: rotate(90deg);
+}
+
+.navbar-toggle .icon-bar {
+    background-color: #A5D6A7;
+    transition: transform 0.3s ease;
+}
+
+.navbar-toggle:hover .icon-bar {
+    transform: scaleX(1.2);
+}
+
+/* Right Navbar Links Styles */
+.navbar-right > li > a {
+    color: #E8F5E9 !important;
+    transition: color 0.3s ease, transform 0.3s ease;
+    position: relative;
+}
+
+.navbar-right > li > a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #A5D6A7;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.navbar-right > li > a:hover {
+    color: #A5D6A7 !important;
+    transform: translateY(-2px);
+}
+
+.navbar-right > li > a:hover::after {
+    transform: scaleX(1);
+}
